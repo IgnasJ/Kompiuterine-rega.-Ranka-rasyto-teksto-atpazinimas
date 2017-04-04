@@ -1,0 +1,14 @@
+#TeX files
+*.pdf
+*.aux
+*.log
+*.out
+*.pyc
+*.o
+*.gz
+*.toc
+
+#IntelliJ files
+.idea
+*.iml
+out/
