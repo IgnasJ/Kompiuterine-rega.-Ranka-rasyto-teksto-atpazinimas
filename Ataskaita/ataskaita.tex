@@ -46,25 +46,25 @@ Nuotraukų apdorojimui buvo pasirinkta OpenCV biblioteka  (\cite{OpenCVabout}). 
 \indent Šioje kompiuterinės regos bibliotekoje yra realizuota daugiau kaip 2500 optimizuotų algoritmų kurie padeda apdirbti vaizdus. Taip pat ji pritaikyta programuoti su tokiomis kalbomis kaip C++, C, Python, JAVA ir yra suderinama su populiariausiomis operacinėmis sistemomis, tokiomis kaip Windows, Linux, Android ar Mac OS. Apie kiekvieną bibliotekoje esantį algoritmai ir jo panaudojimo pavyzdžius, galima rasti OpenCV dokumentacijoje  (\cite{OpenCVdoc}).
 
 \section{Nuotraukų apdorojimas teksto atpažinimui}
-Kad kompiuteris tiksliau atpažintų tektą, visų pirma reikalingas to paveiksliuko apdorojimas. Apdorojimas susideda iš  (\cite{KavaliauskasFelinskas, Beigi}):
+Kad kompiuteris tiksliau atpažintų tekstą, visų pirmiausia reikalingas to paveiksliuko apdorojimas. Apdorojimas susideda iš  (\cite{KavaliauskasFelinskas, Beigi}):
 \begin{itemize}
-	\item nuotraukos nuskaitymas;
-	\item nuotrauką paverčiame į nespalvotą (pilką);
+	\item nuotraukos nuskaitymo;
+	\item nuotrauką paverčiame į nespalvotą vaizdą (pilką);
 	\item apdorojame nuotrauką slenkčių (thresholding) algoritmais, t.y. paverčiama tik į juodai baltą;
-	\item teksto atvaizdą išvalome nuo „triukšmo“ - pašaliname atsitiktinius pikselius, kurie galėjo atsirasti skenuojant ar fotografuoajnt tekstą;
+	\item teksto atvaizdą išvalome nuo „triukšmo“ - pašaliname atsitiktinius pikselius, kurie galėjo atsirasti skenuojant ar fotografuojant tekstą;
 	\item atliekame vaizdo aštinimo procedūras, kurios padės išryškinti teksto kontūrus;
 	\item atliekame teksto ploninimą;
 \end{itemize}
 Šio apdorojimo paskirtis yra palengvinti atpažinimą ir sumažinti duomenų kiekį, kurį turės apdoroti teksto atpažinimo algoritmas.
 \section{Segmentacija}
-Didžiausia probleminė sritis norint atpažinti tekstą, yra teksto segmentaciją iš nuotraukos. Nuo to priklauso, ar teisingai bus atskirti žodžiai ir simboliai teisingam teksto atpažinimui. Tai atliekant kyla nemažai iššūkių, tokių kaip: 
+Didžiausia probleminė sritis norint atpažinti tekstą, yra teksto segmentacija iš nuotraukos. Nuo to priklauso, ar teisingai bus atskirti žodžiai ir simboliai teisingam teksto atpažinimui. Tai atliekant kyla nemažai iššūkių, tokių kaip: 
 \begin{itemize}
 	\item teksto eilutės išskyrimas;
 	\item žodžio atskirimas iš eilutės;
 	\item žodžio segmentacija į raides;
 \end{itemize}
-\indent Skaidant į teksto eilutes  problema atsiranda tuomet, kai teksta parašytas netolygiai, t.y. viena eilutė gali pakilti ar nusileisti ir taip patekti į kitos eilutės rėžius. \\
-\indent Skaidant gautas eilutės į žodžius problema atsiranda tuomet, kai to paties žodžio raidės nėra visos tarpūsavyje sujungtos. Kad to išvengti, tekstą papildomai apdoroju išliejimo (angl. blur) funkcija, kad „užlopyti“ smulkius tarpus.\\
+\indent Skaidant į teksto eilutes  problema atsiranda tuomet, kai tekstas parašytas netolygiai, t.y. viena eilutė gali pakilti ar nusileisti ir taip patekti į kitos eilutės rėžius. \\
+\indent Skaidant gautas eilutes į žodžius problema atsiranda tuomet, kai to paties žodžio raidės nėra visos tarpūsavyje sujungtos. Kad to išvengti, tekstą papildomai apdoroju išliejimo (angl. blur) funkcija, kad „užlopyti“ smulkius tarpus.\\
 \indent Ir galiausiai, gautus žodžius segmentuojant į raides, problema atsiranda tuomet, kai raidės yra sujungtos. Kadangi bandoma raides atskirti tose vietose, kur linija tampa ploniausia, tai nebūtinai reiškia, kad būtent toje vietoje ir jungiasi žodžiai. Pavyzdžiui bandant atskirti raidę `u' neretai ją perskeldavo pusiau.
 
 \newpage
@@ -90,7 +90,7 @@ Suvedus nuotrauko failo pavadinimą, procedūra apdoroja paveiksliuką ir aplank
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[height=.9\linewidth]{img/3.1.png}
-  \caption{Programa atpažįsta konturus tų vietų, kuriuose yra žodžiai}
+  \caption{Programa atpažįsta kontūrus tų vietų, kuriose yra žodžiai}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
