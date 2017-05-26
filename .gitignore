@@ -1,5 +1,4 @@
 #TeX files
-*.pdf
 *.aux
 *.log
 *.out
